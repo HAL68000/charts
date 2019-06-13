@@ -19,6 +19,7 @@ import '../../common/color.dart' show Color;
 import '../../common/graphics_factory.dart' show GraphicsFactory;
 import '../../common/text_element.dart' show TextElement;
 import 'canvas_shapes.dart' show CanvasBarStack, CanvasPie;
+import 'dart:ui' as ui; // Added by GG
 
 abstract class ChartCanvas {
   /// Get [GraphicsFactory] for creating native graphics elements.
@@ -81,6 +82,15 @@ abstract class ChartCanvas {
       Color fill,
       Color stroke,
       double strokeWidthPx});
+      
+  void drawImage(
+      {Point point,
+      double radius,
+      Color fill,
+      Color stroke,
+      double strokeWidthPx,
+      ui.Image immagine, //Added by GG
+      });
 
   /// Renders a polygon shape described by a set of points.
   ///

@@ -16,6 +16,7 @@
 import 'dart:math' show Rectangle, Point, min;
 
 import 'package:meta/meta.dart' show protected;
+import 'dart:ui' as ui;
 
 import '../chart/common/chart_canvas.dart' show ChartCanvas;
 import 'color.dart' show Color;
@@ -38,8 +39,8 @@ abstract class SymbolRenderer extends BaseSymbolRenderer {
   /// (overriding fillColor). strokeWidthPx will default to 2 if none was
   /// configured.
   final bool isSolid;
-
-  SymbolRenderer({this.isSolid});
+  final ui.Image immagine;
+  SymbolRenderer({this.isSolid, this.immagine});
 
   void paint(ChartCanvas canvas, Rectangle<num> bounds,
       {List<int> dashPattern,
@@ -56,7 +57,7 @@ abstract class SymbolRenderer extends BaseSymbolRenderer {
   Color getSolidFillColor(Color fillColor) {
     return isSolid ? fillColor : StyleFactory.style.white;
   }
-
+  
   @override
   bool operator ==(Object other) {
     return other is SymbolRenderer && other.isSolid == isSolid;
@@ -178,6 +179,7 @@ class LineSymbolRenderer extends SymbolRenderer {
       stroke: strokeColor,
       strokeWidthPx: localStrokeWidthPx,
     );
+
   }
 
   @override

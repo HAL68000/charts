@@ -32,7 +32,11 @@ import 'canvas/circle_sector_painter.dart' show CircleSectorPainter;
 import 'canvas/line_painter.dart' show LinePainter;
 import 'canvas/pie_painter.dart' show PiePainter;
 import 'canvas/point_painter.dart' show PointPainter;
+import 'canvas/point_painter.dart' show PointPainter2;
+
 import 'canvas/polygon_painter.dart' show PolygonPainter;
+import 'dart:ui' as ui; //Added by GG
+
 
 class ChartCanvas implements common.ChartCanvas {
   /// Pixels to allow to overdraw above the draw area that fades to transparent.
@@ -46,6 +50,8 @@ class ChartCanvas implements common.ChartCanvas {
   LinePainter _linePainter;
   PiePainter _piePainter;
   PointPainter _pointPainter;
+  PointPainter2 _pointPainter2;
+
   PolygonPainter _polygonPainter;
 
   ChartCanvas(this.canvas, this.graphicsFactory);
@@ -113,7 +119,27 @@ class ChartCanvas implements common.ChartCanvas {
         stroke: stroke,
         strokeWidthPx: strokeWidthPx);
   }
-
+  /// Added by GG
+  @override
+  void drawImage(
+      {Point point,
+      double radius,
+      common.Color fill,
+      common.Color stroke,
+      double strokeWidthPx,
+      ui.Image immagine}) {
+    _pointPainter2 ??= new PointPainter2();
+    _pointPainter2.draw(
+        canvas: canvas,
+        paint: _paint,
+        point: point,
+        radius: radius,
+        fill: fill,
+        stroke: stroke,
+        strokeWidthPx: strokeWidthPx,
+        immagine:immagine);
+  }
+  //End addiction
   @override
   void drawPolygon(
       {List<Point> points,

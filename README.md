@@ -1,4 +1,7 @@
+-------------------------------------------------------
 Added some experimental features to add images to graph
+-------------------------------------------------------
+
 
 Charts is a general charting library, currently enabled for the
 [Flutter mobile UI framework](https://flutter.io).

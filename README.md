@@ -1,6 +1,6 @@
--------------------------------------------------------
-Added some experimental features to add images to graph
--------------------------------------------------------
+-----------------------------------------------------------
+Added some experimental features to add svg images to graph
+-----------------------------------------------------------
 
 
 Charts is a general charting library, currently enabled for the
